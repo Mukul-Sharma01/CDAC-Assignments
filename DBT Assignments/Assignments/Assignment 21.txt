@@ -1,0 +1,90 @@
+                                        Assignment 21
+
+                                      Grant and Revoke
+
+
+
+1) Give Amit the right to change the ratings of the customers.
+
+
+
+mysql> GRANT UPDATE (Rating)
+
+    -> ON CUSTOMERS
+
+    -> TO Amit;
+
+
+
+2) Give Manoj the right to give other users the right to query the Orders table.
+
+
+
+mysql> GRANT SELECT
+
+    -> ON ORDERS
+
+    -> TO Manoj
+
+    -> WITH GRANT OPTION;
+
+
+
+
+
+3) Take the INSERT privilege on Salespeople away from Ajita.
+
+
+
+mysql> REVOKE INSERT
+
+    -> ON SALESPEOPLE
+
+    -> FROM Ajita;
+
+
+
+
+
+4) Grant Abhijeet the right to insert or update the Customers table while keeping her possible rating values in the range of 100 to 500.
+
+
+
+mysql> GRANT INSERT, UPDATE
+
+    -> ON CUSTOMERS
+
+    -> TO Abhijeet;
+
+
+
+
+
+5) Allow Vikram to query the Customers table, but restrict his access to those customers whose rating is the lowest.
+
+
+
+mysql> CREATE VIEW LowestRatingCustomers AS
+
+    -> SELECT *
+
+    -> FROM CUSTOMERS
+
+    -> WHERE Rating = (SELECT MIN(Rating) FROM CUSTOMERS);
+
+
+
+mysql> GRANT SELECT
+
+    -> ON LowestRatingCustomers
+
+    -> TO Vikram;
+
+
+
+
+
+
+
+
+

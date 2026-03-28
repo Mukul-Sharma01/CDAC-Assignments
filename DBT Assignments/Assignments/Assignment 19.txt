@@ -1,0 +1,74 @@
+                                             Assignment 19
+
+                                                 Views
+
+
+
+
+1) Create a view that shows all of the customers who have the highest ratings.
+
+
+mysql> CREATE VIEW HighRatingCustomers AS
+
+    -> SELECT *
+
+    -> FROM CUSTOMERS
+
+    -> WHERE Rating = (SELECT MAX(Rating) FROM CUSTOMERS);
+
+
+
+
+
+2) Create a view that shows the number of salespeople in each city.
+
+
+mysql> CREATE VIEW SalespeopleCount AS
+
+    -> SELECT City, COUNT(*) AS Total_Salespeople
+
+    -> FROM SALESPEOPLE
+
+    -> GROUP BY City;
+
+
+
+
+
+3) Create a view that shows the average and total orders for each salesperson after his or her name. Assume all names are unique.
+
+
+mysql> CREATE VIEW SalespersonOrders AS
+
+    -> SELECT S.Sname, AVG(O.Amount) AS Avg_Order, SUM(O.Amount) AS Total_Order
+
+    -> FROM SALESPEOPLE S, ORDERS O
+
+    -> WHERE S.Snum = O.Snum
+
+    -> GROUP BY S.Sname;
+
+
+
+
+
+4) Create a view that shows each salesperson with multiple customers.
+
+
+mysql> CREATE VIEW MultiCustomerSalespeople AS
+
+    -> SELECT S.Sname, COUNT(C.Cnum) AS Total_Customers
+
+    -> FROM SALESPEOPLE S, CUSTOMERS C
+
+    -> WHERE S.Snum = C.Snum
+
+    -> GROUP BY S.Sname
+
+    -> HAVING COUNT(C.Cnum) > 1;
+
+
+
+
+
+
