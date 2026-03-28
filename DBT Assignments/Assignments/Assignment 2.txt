@@ -1,0 +1,36 @@
+                                         Assignment 2
+
+
+                                Introducing Relational Databases
+
+
+
+1) Which field of the Customers table is the primary key?
+
+The primary key of the Customers table is Cnum.
+
+It uniquely identifies each customer in the table, so no two customers can have the same Cnum.
+
+
+
+2) What is the 4th column of the Customers table?
+
+The 4th column in the Customers table is Rating.
+
+It represents the rating or score assigned to a particular customer.
+
+
+
+3) What is another word for row? For column?
+
+A row is also called a record or tuple.
+
+A column is also known as an attribute or field.
+
+
+
+4) Why isn’t it possible to see the first five rows of a table?
+
+In a relational table, rows are not stored in any guaranteed order.
+
+Because of this, the concept of “first five rows” only makes sense when an ORDER BY clause is used.
